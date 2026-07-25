@@ -5,7 +5,7 @@ the shared Pydantic models every device REST service and every reader
 (the `lab-skills` SDK, the dashboard) agree on.
 
 **The normative text is not here.** It lives at
-[`ac-organic-lab/docs/STATUS_SPEC.md`](https://github.com/cyrilcaoyang/ac-organic-lab/blob/main/docs/STATUS_SPEC.md);
+[`ac-organic-lab/docs/STATUS_SPEC.md`](https://github.com/AccelerationConsortium/ac-organic-lab/blob/main/docs/STATUS_SPEC.md);
 this package mirrors it. Spec ships before code: these models never change
 ahead of a merged spec revision.
 
