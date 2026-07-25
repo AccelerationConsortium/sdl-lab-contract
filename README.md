@@ -39,9 +39,9 @@ your service actually implements on your own responses; `SPEC_VERSION`
 ## Install
 
 ```bash
-uv add git+https://github.com/cyrilcaoyang/sdl-lab-contract
+uv add git+https://github.com/AccelerationConsortium/sdl-lab-contract
 # pin a spec revision:
-uv add "sdl-lab-contract @ git+https://github.com/cyrilcaoyang/sdl-lab-contract@v1.2.0"
+uv add "sdl-lab-contract @ git+https://github.com/AccelerationConsortium/sdl-lab-contract@v1.2.0"
 ```
 
 ## Migrating a device repo off its vendored copy
