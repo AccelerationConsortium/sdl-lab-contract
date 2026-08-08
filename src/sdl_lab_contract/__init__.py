@@ -13,6 +13,10 @@ from .claims import (
     ClaimRequest,
     ClaimResponse,
 )
+from .conformance import (
+    check_consistency,
+    reports_activity,
+)
 from .models import (
     PROTOCOL_VERSION,
     SPEC_VERSION,
@@ -27,8 +31,9 @@ from .models import (
     MetricValue,
     ProbeResponse,
 )
+from .preconditions import PreconditionFailure
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 
 __all__ = [
     "Activity",
@@ -45,7 +50,10 @@ __all__ = [
     "HealthResponse",
     "MetricValue",
     "PROTOCOL_VERSION",
+    "PreconditionFailure",
     "ProbeResponse",
     "SPEC_VERSION",
     "__version__",
+    "check_consistency",
+    "reports_activity",
 ]

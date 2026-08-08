@@ -17,10 +17,31 @@ ahead of a merged spec revision.
   bodies (`ProbeResponse`, `HealthResponse`).
 - `claims` — the §5 claim-protocol bodies (`ClaimRequest`, `ClaimResponse`,
   `ClaimRejection`, `ClaimedBy`).
+- `preconditions` — `PreconditionFailure`, the §6.1 HTTP 412 refusal body.
+  Only the common base (`detail`, `retry_after_s` + its `Retry-After` header);
+  §6.1 wants bodies distinguishable by *shape*, so declare your device's own
+  fields by subclassing. A reader can parse an unrecognised shape as the base
+  without losing the fields it branches on.
+- `conformance` — `check_consistency()`, the §2.3 invariant table
+  (`busy`⇒`running`, `ready`/`requires_init`/`e_stop`⇒`idle`, …) that the types
+  cannot express. A function, not a validator: readers must parse a
+  nonconformant envelope, not crash on it. Assert it empty over your §9
+  snapshot fixtures:
+
+  ```python
+  from sdl_lab_contract import EquipmentStatus, check_consistency
+
+  def test_fixtures_are_spec_consistent(fixture_json):
+      assert check_consistency(EquipmentStatus.model_validate(fixture_json)) == []
+  ```
+
+  It skips pre-v1.2 devices on purpose — they omit `activity`, so the reader's
+  `"unknown"` default is correct rather than a bug (§8).
 
 Deliberately **not** here: reader/aggregator runtime types (`FetchError`,
 `EquipmentSnapshot`, …) — those describe a reader's view, not the contract,
-and live in `lab_skills.models`.
+and live in `lab_skills.models`. Nor any one device's precondition catalog —
+that is the device repo's, per §6.1.
 
 ## Versioning — lockstep with the spec
 

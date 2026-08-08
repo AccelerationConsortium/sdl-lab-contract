@@ -5,7 +5,7 @@ name = "sdl-lab-contract"
 # the patch digit is free for packaging fixes that do not change the wire
 # contract. Bumping minor REQUIRES a merged spec change first (spec ships
 # before code — ac-organic-lab ARCHITECTURE.md decision #8).
-version = "1.2.0"
+version = "1.2.1"
 description = "STATUS_SPEC device-contract types for the AC Organic Self-Driving Lab (Pydantic models shared by device repos and the lab-skills SDK)."
 readme = "README.md"
 requires-python = ">=3.10"
